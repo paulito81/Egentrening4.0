@@ -1,9 +1,7 @@
 package infrastructure.subject;
 
-import model.Location;
-import model.User;
+import model.Subject;
 
-import javax.jms.Topic;
 import java.util.List;
 
 /**
@@ -11,8 +9,8 @@ import java.util.List;
  */
 public interface SubjectDAO {
 
-    boolean createNewLocation(Location location);
-    Location getLocationByID(int id);
-    List<User> getAllUserByTopic(Topic topic);
+    Subject createNewSubject(Subject subject);
+    Subject getSubjectById(int id);
+    List<Subject> getAllUsersBySubject();
 
 }

@@ -20,7 +20,7 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "User.sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USER")
     private int id;
     @NotNull
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$")

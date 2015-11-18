@@ -10,9 +10,15 @@ import java.util.List;
  * Created by Paul on 18.11.2015.
  */
 @Entity
-@NamedQuery(name = "Subject.getAll", query = "select s from Subject s")
+@NamedQuery(name = "Subject.getUsers", query = "select s from Subject s")
 @SequenceGenerator(name = "SEQ_SUBJECT", initialValue = 50)
 public class Subject {
+
+    public Subject(String name, List<User> users, Location location) {
+        this.name = name;
+        this.users = users;
+        this.location = location;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SUBJECT")

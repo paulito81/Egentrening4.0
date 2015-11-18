@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
  * Created by Paul on 18.11.2015.
  */
 @Entity
-@NamedQuery(name = "Location.getAll", query = "select l from Location l")
-@SequenceGenerator(name = "SEQ_LOCTATION", initialValue = 50)
+@NamedQuery(name = "Location.getAllUsers", query = "select l from Location l")
+@SequenceGenerator(name = "SEQ_LOCATION", initialValue = 50)
 public class Location {
 
     @Id
