@@ -9,16 +9,15 @@
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
         <f:metadata>
-            <f:viewParam name="id" value="#{subjectController.subjectId}"/>
-            <f:viewAction action="#{subjectController.initSubject()}" />
+            <f:viewParam name="id" value="#{locationController.selectedId}"/>
+            <f:viewAction action="#{locationController.findLocationById()}" />
         </f:metadata>
 
-        <h2><h:outputText value="#{subjectController.subject.name}"/></h2>
+        <h2><h:outputText value="#{locationController.location.building}"/></h2>
         <ul>
-            <li>Id: <h:outputText value="#{subjectController.subject.id}"/></li>
-            <li>Name: <h:outputText value="#{subjectController.subject.name}"/></li>
-            <li>Location: <h:outputText value="#{subjectController.getSelectedLocation() }"/> </li>
-            <li>Users: <h:outputText value="#{subjectController.getSelectedUsers}"/> </li>
+            <li>Id: <h:outputText value="#{locationController.location.id}"/></li>
+            <li>Building: <h:outputText value="#{locationController.location.building}"/></li>
+            <li>Locations: <h:outputText value="#{locationController.allLocations() }"/> </li>
         </ul>
     </ui:define>
 </ui:composition>

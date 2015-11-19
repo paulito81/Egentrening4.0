@@ -20,6 +20,14 @@ public class Location {
     @NotNull
     private String building;
 
+    public Location(){
+
+    }
+    public Location(String room, String building) {
+        this.room = room;
+        this.building = building;
+    }
+
     public int getId() {
         return id;
     }

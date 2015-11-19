@@ -8,18 +8,22 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
-        <p:dataTable var="subject" value="#{subjectController.getAllSubject() }">
-            <p:column headerText="Id">
-                <h:outputText value="#{subject.id}"/>
+        <p:dataTable var="location" value="#{locationController.allLocations() }">
+           <p:column headerText="id">
+               <h:outputText value="#{location.id}"/>
+           </p:column>
+
+            <p:column headerText="Room">
+                <h:outputText value="#{location.room}"/>
             </p:column>
 
-            <p:column headerText="Name">
-                <h:outputText value="#{subject.name}"/>
+            <p:column headerText="Building">
+                <h:outputText value="#{locationController.location.building}"/>
             </p:column>
 
             <p:column>
-                <p:link outcome="subject-details" value="Details">
-                    <f:param name="id" value="#{subject.id}" />
+                <p:link outcome="location-details" value="Details">
+                    <f:param name="id" value="#{location.id}"/>
                 </p:link>
             </p:column>
         </p:dataTable>

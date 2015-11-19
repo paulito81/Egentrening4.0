@@ -39,7 +39,8 @@ public class UserController {
     }
 
     public void getUserByID(){
-       user = userDAO.getUserByID(selectedId);
+
+        user = userDAO.getUserByID(selectedId);
     }
     public int getSelectedId(){
         return selectedId;

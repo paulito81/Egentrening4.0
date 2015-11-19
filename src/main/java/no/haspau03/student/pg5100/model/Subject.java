@@ -14,11 +14,6 @@ import java.util.List;
 @SequenceGenerator(name = "SEQ_SUBJECT", initialValue = 50)
 public class Subject {
 
-    public Subject(String name, List<User> users, Location location) {
-        this.name = name;
-        this.users = users;
-        this.location = location;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SUBJECT")
@@ -27,13 +22,22 @@ public class Subject {
     @NotNull
     private String name;
 
+    public Subject(String name, List<User> users, Location location) {
+        this.name = name;
+        this.users = users;
+        this.location = location;
+    }
+    public Subject(){
+
+    }
+
     @NotNull
     @Size(min = 0, max = 100)
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)//(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinTable(name = "USR_SUB")
     private List<User> users;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne//(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "FK_LOCATION")
     @Valid
     private Location location;
