@@ -9,16 +9,16 @@
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
         <h:form>
-            <p:message/>
-            <h:outputLabel for="email" value="E-mail" />
-            <h:inputText id="email" value="#{userController.user.email}" />
+            <p:messages/>
+            <h:outputText for="email" value="E-mail"/>
+            <h:inputText id="email" value="#{userController.user.email}"/>
             <br/>
-            <h:inputText for="password" value="Password" />
+            <h:outputLabel for="password" value="Password"/>
             <h:inputSecret id="password" value="#{userController.user.password}"/>
             <br/>
-            <h:outputLabel for="WorkType" value="WorkType"/>
+            <h:outputLabel for="WorkType" value="Type"/>
             <h:selectOneMenu id="WorkType" value="#{userController.user.workType}">
-                <f:selectItems value="#{userController.getUserTypes() }"/>
+                <f:selectItems value="#{userController.getWorkTypes()}"/>
             </h:selectOneMenu>
             <br/>
             <h:commandButton value="Submit" action="#{userController.persistNewUser()}"/>
