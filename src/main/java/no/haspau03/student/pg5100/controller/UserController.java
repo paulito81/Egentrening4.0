@@ -1,6 +1,6 @@
 package no.haspau03.student.pg5100.controller;
 
-import no.haspau03.student.pg5100.infrastructure.user.jpa.JpaUser;
+import no.haspau03.student.pg5100.infrastructure.user.jpa.JPAUser;
 import no.haspau03.student.pg5100.infrastructure.user.UserDAO;
 import no.haspau03.student.pg5100.model.Subject;
 import no.haspau03.student.pg5100.model.User;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Model
 public class UserController {
 
-    @Inject @JpaUser
+    @Inject @JPAUser
     private UserDAO userDAO;
 
     private int selectedId;

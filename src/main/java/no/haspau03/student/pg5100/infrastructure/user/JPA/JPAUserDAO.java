@@ -11,16 +11,16 @@ import java.util.List;
 /**
  * Created by Paul on 18.11.2015.
  */
-@JpaUser
-public class JpaUserDAO implements UserDAO {
+@JPAUser
+public class JPAUserDAO implements UserDAO {
 
     @PersistenceContext(unitName = "Egentrening4")
     private EntityManager entityManager;
 
-    public JpaUserDAO() {
+    public JPAUserDAO() {
     }
 
-    JpaUserDAO(EntityManager entityManager) {
+    JPAUserDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 

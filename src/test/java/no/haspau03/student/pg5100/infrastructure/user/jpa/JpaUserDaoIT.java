@@ -13,13 +13,13 @@ import javax.persistence.Persistence;
 public class JpaUserDaoIT {
     private EntityManagerFactory factory;
     private EntityManager entityManager;
-    private JpaUserDAO userDAO;
+    private JPAUserDAO userDAO;
 
     @Before
     public void setUp() throws Exception {
         factory = Persistence.createEntityManagerFactory("Egentrening4");
         entityManager = factory.createEntityManager();
-        userDAO = new JpaUserDAO(entityManager);
+        userDAO = new JPAUserDAO(entityManager);
     }
 
     @Test

@@ -3,7 +3,7 @@ package no.haspau03.student.pg5100.controller;
 import no.haspau03.student.pg5100.infrastructure.location.LocationDAO;
 import no.haspau03.student.pg5100.infrastructure.subject.SubjectDAO;
 import no.haspau03.student.pg5100.infrastructure.user.UserDAO;
-import no.haspau03.student.pg5100.infrastructure.user.jpa.JpaUser;
+import no.haspau03.student.pg5100.infrastructure.user.jpa.JPAUser;
 import no.haspau03.student.pg5100.model.Location;
 import no.haspau03.student.pg5100.model.Subject;
 import no.haspau03.student.pg5100.model.User;
@@ -27,7 +27,7 @@ public class SubjectController {
     @Inject
     LocationDAO locationDAO;
 
-    @Inject @JpaUser
+    @Inject @JPAUser
     private UserDAO userDAO;
 
     private int subjectId;
