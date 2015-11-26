@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
-        <p:dataTable var="location" value="#{locationController.allLocations() }">
+        <p:dataTable var="location" value="#{locationController.getAllLocations() }">
            <p:column headerText="id">
                <h:outputText value="#{location.id}"/>
            </p:column>

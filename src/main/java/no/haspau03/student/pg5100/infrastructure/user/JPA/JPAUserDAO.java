@@ -28,8 +28,7 @@ public class JpaUserDAO implements UserDAO {
     public User createUser(User user) {
         if (user == null)
             throw new IllegalArgumentException("User not found");
-
-        entityManager.persist(user);
+            entityManager.persist(user);
         return user;
     }
 

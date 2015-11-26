@@ -10,10 +10,9 @@
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="id" value="#{subjectController.subjectId}"/>
-            <f:viewAction action="#{subjectController.initSubject()}" />
+            <f:viewAction action="#{subjectController.getSubjectById()}" />
         </f:metadata>
 
-        <h2><h:outputText value="#{subjectController.subject.name}"/></h2>
         <ul>
             <li>Id: <h:outputText value="#{subjectController.subject.id}"/></li>
             <li>Name: <h:outputText value="#{subjectController.subject.name}"/></li>

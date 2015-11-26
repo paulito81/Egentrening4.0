@@ -10,7 +10,7 @@
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="id" value="#{userController.selectedId}"/>
-            <f:viewAction action="#{userController.init()}" />
+            <f:viewAction action="#{userController.getUserByID}" />
         </f:metadata>
 
         <h2><h:outputText value="#{userController.user.email}"/></h2>

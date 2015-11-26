@@ -33,7 +33,7 @@ public class JpaSubjectDAO implements SubjectDAO{
             return subject;
         }
         else
-            throw new NullPointerException("No value was found");
+            throw new IllegalArgumentException("No value was found");
     }
 
     @Override
@@ -42,7 +42,7 @@ public class JpaSubjectDAO implements SubjectDAO{
             return entityManager.find(Subject.class, id);
         }
         else
-            throw new NullPointerException("No value where found");
+            throw new IllegalArgumentException("No value where found");
     }
 
     @Override
