@@ -10,14 +10,14 @@
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="id" value="#{subjectController.subjectId}"/>
-            <f:viewAction action="#{subjectController.getSubjectById()}" />
+            <f:viewAction action="#{subjectController.getSubjectById() }" />
         </f:metadata>
 
         <ul>
             <li>Id: <h:outputText value="#{subjectController.subject.id}"/></li>
             <li>Name: <h:outputText value="#{subjectController.subject.name}"/></li>
             <li>Location: <h:outputText value="#{subjectController.getSelectedLocation() }"/> </li>
-            <li>Users: <h:outputText value="#{subjectController.getSelectedUsers}"/> </li>
+            <li>Users: <h:outputText value="#{subjectController.getSelectedUsers() }"/> </li>
         </ul>
     </ui:define>
 </ui:composition>

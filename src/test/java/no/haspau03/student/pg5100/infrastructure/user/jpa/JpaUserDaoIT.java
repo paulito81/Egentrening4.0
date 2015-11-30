@@ -1,5 +1,6 @@
 package no.haspau03.student.pg5100.infrastructure.user.jpa;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,6 +21,12 @@ public class JpaUserDaoIT {
         factory = Persistence.createEntityManagerFactory("Egentrening4");
         entityManager = factory.createEntityManager();
         userDAO = new JPAUserDAO(entityManager);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        entityManager.close();
+        factory.close();
     }
 
     @Test

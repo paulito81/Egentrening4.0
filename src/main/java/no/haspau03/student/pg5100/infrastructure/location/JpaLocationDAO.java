@@ -47,4 +47,13 @@ public class JpaLocationDAO implements LocationDAO {
         return query.getResultList();
     }
 
+    @Override
+    public boolean removeLocation(int id) {
+        if(id!=0) {
+            entityManager.remove(id);
+            return true;
+        }
+        throw new IllegalArgumentException("Value is not found");
+    }
+
 }

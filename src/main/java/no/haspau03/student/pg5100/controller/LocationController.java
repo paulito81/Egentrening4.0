@@ -26,6 +26,7 @@ public class LocationController {
     }
 
     public void persistNewLocation(){
+
         locationDAO.persist(location);
     }
 
@@ -35,6 +36,9 @@ public class LocationController {
 
     public void findLocationById(){
        location = locationDAO.findByID(selectedId);
+    }
+    public boolean deleteLocationById(){
+        return locationDAO.removeLocation(selectedId);
     }
 
     public int getSelectedId() {
@@ -52,6 +56,8 @@ public class LocationController {
     public void setLocation(Location location) {
         this.location = location;
     }
-
+    public String getSelectedLocation(){
+        return location.getRoom();
+    }
 
 }

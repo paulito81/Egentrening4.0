@@ -12,4 +12,5 @@ public interface LocationDAO {
     Location persist(Location location);
     Location findByID(int id);
     List<Location> getAll();
+    boolean removeLocation(int id);
 }

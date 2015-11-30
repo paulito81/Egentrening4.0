@@ -79,6 +79,7 @@ public class SubjectController {
     }
 
     public void initSubject(){
+
         subject = subjectDAO.getSubjectById(subjectId);
     }
 
