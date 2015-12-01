@@ -9,15 +9,15 @@
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
         <p:dataTable var="subject" value="#{subjectController.getAllSubject() }">
-            <p:column headerText="Id">
+            <p:column headerText="Id" colspan="3" style="text-align: left">
                 <h:outputText value="#{subject.id}"/>
             </p:column>
 
-            <p:column headerText="Name">
+            <p:column headerText="Name" colspan="3" style="text-align: left">
                 <h:outputText value="#{subject.name}"/>
             </p:column>
 
-            <p:column>
+            <p:column headerText="Details" colspan="3" style="text-align: left">
                 <p:link outcome="subject-details" value="Details">
                     <f:param name="id" value="#{subject.id}" />
                 </p:link>

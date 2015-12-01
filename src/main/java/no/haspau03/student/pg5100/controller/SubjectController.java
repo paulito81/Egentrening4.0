@@ -85,7 +85,7 @@ public class SubjectController {
 
     public String getSelectedLocation(){
         Location location = subject.getLocation();
-        return location.getBuilding() + " - " + location.getRoom();
+        return location.getBuilding() + " - " + location.getRoom() ;
     }
 
     public List<String> getSelectedUsers() {
@@ -95,7 +95,7 @@ public class SubjectController {
 
     public List<SelectItem> getLocations(){
         List<Location> locations = locationDAO.getAll();
-        return locations.stream().map(l -> new SelectItem(l.getId(), l.getBuilding() + " -" + l.getRoom())).collect(Collectors.toList());
+        return locations.stream().map(l -> new SelectItem(l.getId(), l.getBuilding() + " -" + l.getRoom())).collect(Collectors.toList()) ;
     }
     public List<SelectItem> getUsers(){
         List<User> users = userDAO.getAllUsers();

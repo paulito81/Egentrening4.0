@@ -31,14 +31,15 @@ public class LocationController {
     }
 
     public List<Location> getAllLocations(){
+
         return locationDAO.getAll();
     }
 
     public void findLocationById(){
        location = locationDAO.findByID(selectedId);
     }
-    public boolean deleteLocationById(){
-        return locationDAO.removeLocation(selectedId);
+    public void deleteLocationById(){
+         locationDAO.removeLocation(selectedId);
     }
 
     public int getSelectedId() {

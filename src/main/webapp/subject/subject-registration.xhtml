@@ -10,21 +10,22 @@
     <ui:define name="content">
         <h:form>
             <p:messages/>
-            <h:outputLabel for="name" value="Name:"/>
+            <h:outputLabel style="font-size: large" for="name" value="Name:"/>
             <h:inputText id="name" value="#{subjectController.subject.name}" />
             <br/>
-            <h:outputLabel for="location" value="Location"/>
+            <h:outputLabel style="font-size: large" for="location" value="Location"/>
                 <h:selectOneMenu id="location" value="#{subjectController.locationId}">
                 <f:selectItems var="location" value="#{subjectController.getLocations()}" />
                 </h:selectOneMenu>
             <br/>
-            <h:outputLabel for="users" value="Users:"/>
-            <h:selectManyCheckbox id="users" value="#{subjectController.userIds}">
+            <h:outputLabel style="font-size: large" for="users" value="Users:"/>
+            <h:selectManyCheckbox style="font-size: large" id="users" value="#{subjectController.userIds}">
                 <f:selectItems value="#{subjectController.getUsers()  }"/>
             </h:selectManyCheckbox>
             <br/>
-            <h:commandButton value="Submit" action="#{subjectController.createNewSubject()}"/>
+            <h:commandButton style="font-size: x-large" value="Submit" action="#{subjectController.createNewSubject()}"/>
         </h:form>
+
     </ui:define>
 </ui:composition>
 </html>

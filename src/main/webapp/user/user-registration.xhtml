@@ -10,18 +10,20 @@
     <ui:define name="content">
         <h:form>
             <p:messages/>
-            <h:outputText for="email" value="E-mail"/>
-            <h:inputText id="email" value="#{userController.user.email}"/>
+            <h:outputText style="font-size: large" for="email" value="E-mail" />
+            <h:inputText style="font-size: large" id="email" value="#{userController.user.email}"/>
             <br/>
-            <h:outputLabel for="password" value="Password"/>
-            <h:inputSecret id="password" value="#{userController.user.password}"/>
+            <h:outputLabel style="font-size: large"  for="password" value="Password"/>
+            <h:inputSecret style="font-size: large" id="password" value="#{userController.user.password}"/>
             <br/>
-            <h:outputLabel for="WorkType" value="Type"/>
-            <h:selectOneMenu id="WorkType" value="#{userController.user.workType}">
+            <h:outputLabel style="font-size: large" for="WorkType" value="Type"/>
+            <h:selectOneMenu style="font-size: large" id="WorkType" value="#{userController.user.workType}">
                 <f:selectItems value="#{userController.getWorkTypes()}"/>
             </h:selectOneMenu>
             <br/>
-            <h:commandButton value="Submit" action="#{userController.persistNewUser() }"/>
+            <br/>
+
+            <h:commandButton style="font-size: x-large" value="Submit" action="#{userController.persistNewUser() }"/>
         </h:form>
     </ui:define>
 </ui:composition>

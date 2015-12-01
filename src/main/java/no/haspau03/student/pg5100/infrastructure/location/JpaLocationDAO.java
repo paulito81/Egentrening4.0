@@ -49,11 +49,12 @@ public class JpaLocationDAO implements LocationDAO {
 
     @Override
     public boolean removeLocation(int id) {
-        if(id!=0) {
+        if(id != 0) {
             entityManager.remove(id);
             return true;
         }
         throw new IllegalArgumentException("Value is not found :(");
     }
+
 
 }

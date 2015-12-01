@@ -8,15 +8,18 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
+        <div align="left">
         <h:form>
-
+            <p:messages/>
             <br/>
-            <h:outputLabel for="room" value="Room" />
-
-            <h:inputText id="room" value="#{locationController.location.room}" />
+            <h:outputLabel style="font-size: large" for="users" value="Remove Location:"/>
+            <h:selectManyCheckbox style="font-size: large" id="users" value="#{locationController.allLocations}">
+                <f:selectItems value="#{subjectController.getLocations()  }"/>
+            </h:selectManyCheckbox>
             <br/>
-            <h:commandButton value="Remove" action="#{locationController.deleteLocationById() }" />
+            <h:commandButton style="font-size: x-large" value="Remove" action="#{locationController.deleteLocationById() }" />
         </h:form>
+        </div>
     </ui:define>
 </ui:composition>
 </html>

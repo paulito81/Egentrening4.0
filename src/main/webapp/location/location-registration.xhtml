@@ -10,13 +10,14 @@
     <ui:define name="content">
             <h:form>
              <p:messages/>
-             <h:outputLabel for="building" value="Building"/>
+             <h:outputLabel style="font-size: large" for="building" value="Building"/>
              <h:inputText id="building" value="#{locationController.location.building}"/>
              <br/>
-             <h:outputLabel for="room" value="Room" />
+             <h:outputLabel style="font-size: large" for="room" value="Room" />
              <h:inputText id="room" value="#{locationController.location.room}" />
              <br/>
-             <h:commandButton value="Submit" action="#{locationController.persistNewLocation() }" />
+             <br/>
+             <h:commandButton style="font-size: x-large" value="Submit" action="#{locationController.persistNewLocation() }" />
             </h:form>
     </ui:define>
 </ui:composition>
