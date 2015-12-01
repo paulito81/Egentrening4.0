@@ -9,21 +9,25 @@
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
         <h:form>
+
+            <p:panel header="Register A New User">
             <p:messages/>
-            <h:outputText style="font-size: large" for="email" value="E-mail" />
-            <h:inputText style="font-size: large" id="email" value="#{userController.user.email}"/>
-            <br/>
-            <h:outputLabel style="font-size: large"  for="password" value="Password"/>
-            <h:inputSecret style="font-size: large" id="password" value="#{userController.user.password}"/>
-            <br/>
-            <h:outputLabel style="font-size: large" for="WorkType" value="Type"/>
-            <h:selectOneMenu style="font-size: large" id="WorkType" value="#{userController.user.workType}">
+            <p:panelGrid columns="2" columnClasses="label, value">
+
+            <h:outputText style="font-size: large" value="E-mail"  />
+            <h:inputText style="font-size: large" id="email" value="#{userController.user.email}" required="true" label="Email"/>
+            <h:outputText style="font-size: large" value="Password"/>
+            <h:inputSecret style="font-size: large" id="password" value="#{userController.user.password}" required="true" label="Password"/>
+            <h:outputLabel style="font-size: large" value="Type"/>
+            <h:selectOneMenu style="font-size: large" id="WorkType" value="#{userController.user.workType}" required="true" label="Worktype">
                 <f:selectItems value="#{userController.getWorkTypes()}"/>
             </h:selectOneMenu>
-            <br/>
-            <br/>
-
+            </p:panelGrid>
+             <br/>
+                <div align="center">
             <h:commandButton style="font-size: x-large" value="Submit" action="#{userController.persistNewUser() }"/>
+                </div>
+            </p:panel>
         </h:form>
     </ui:define>
 </ui:composition>

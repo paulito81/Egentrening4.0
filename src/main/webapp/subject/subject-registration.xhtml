@@ -9,23 +9,27 @@
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
         <h:form>
+            <p:panel header="Register A New User">
             <p:messages/>
-            <h:outputLabel style="font-size: large" for="name" value="Name:"/>
-            <h:inputText id="name" value="#{subjectController.subject.name}" />
-            <br/>
-            <h:outputLabel style="font-size: large" for="location" value="Location"/>
+            <p:panelGrid columns="2" columnClasses="label, value">
+
+            <h:outputText style="font-size: large" value="Name:"/>
+            <h:inputText id="name" value="#{subjectController.subject.name}" required="true" label="Name"/>
+            <h:outputText style="font-size: large" value="Location"/>
                 <h:selectOneMenu id="location" value="#{subjectController.locationId}">
                 <f:selectItems var="location" value="#{subjectController.getLocations()}" />
                 </h:selectOneMenu>
-            <br/>
-            <h:outputLabel style="font-size: large" for="users" value="Users:"/>
-            <h:selectManyCheckbox style="font-size: large" id="users" value="#{subjectController.userIds}">
+            <h:outputText style="font-size: large" value="Users:"/>
+            <h:selectOneMenu style="font-size: large" id="users" value="#{subjectController.userIds}">
                 <f:selectItems value="#{subjectController.getUsers()  }"/>
-            </h:selectManyCheckbox>
+            </h:selectOneMenu>
+            </p:panelGrid>
             <br/>
+                <div align="center">
             <h:commandButton style="font-size: x-large" value="Submit" action="#{subjectController.createNewSubject()}"/>
+            </div>
+            </p:panel>
         </h:form>
-
     </ui:define>
 </ui:composition>
 </html>

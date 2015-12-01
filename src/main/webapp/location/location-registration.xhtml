@@ -9,15 +9,20 @@
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
             <h:form>
-             <p:messages/>
-             <h:outputLabel style="font-size: large" for="building" value="Building"/>
-             <h:inputText id="building" value="#{locationController.location.building}"/>
-             <br/>
-             <h:outputLabel style="font-size: large" for="room" value="Room" />
-             <h:inputText id="room" value="#{locationController.location.room}" />
-             <br/>
-             <br/>
+                <p:panel header="Register A Location">
+                <p:messages/>
+                <p:panelGrid columns="2" columnClasses="label, value">
+             <h:outputText style="font-size: large" value="Building"/>
+             <h:inputText id="building" value="#{locationController.location.building}" required="true" label="Building"/>
+             <h:outputText style="font-size: large" value="Room" />
+             <h:inputText id="room" value="#{locationController.location.room}" required="true" label="Room"/>
+
+                </p:panelGrid>
+                    <br/>
+                    <div align="center">
              <h:commandButton style="font-size: x-large" value="Submit" action="#{locationController.persistNewLocation() }" />
+                </div>
+                </p:panel>
             </h:form>
     </ui:define>
 </ui:composition>
