@@ -27,7 +27,7 @@ public class JPAUserDAO implements UserDAO {
     @Override
     public User createUser(User user) {
         if (user == null)
-            throw new IllegalArgumentException("User not found");
+            throw new IllegalArgumentException("User not found :(");
             entityManager.persist(user);
         return user;
     }
@@ -35,7 +35,7 @@ public class JPAUserDAO implements UserDAO {
     @Override
     public boolean updateAUser(User user) {
         if (user == null)
-            throw new IllegalArgumentException("User where not found @Nullpointer");
+            throw new IllegalArgumentException("User where not found @Nullpointer :(");
 
         if (entityManager.contains(user)) {
             entityManager.merge(user);
@@ -49,7 +49,7 @@ public class JPAUserDAO implements UserDAO {
     @Override
     public User getUserByID(int id) {
         if (id == 0)
-            throw new IllegalArgumentException(String.format("User with id-nr:[%d] where not found", id));
+            throw new IllegalArgumentException(String.format("User with id-nr:[%d] where not found :(", id));
 
         return entityManager.find(User.class, id);
     }

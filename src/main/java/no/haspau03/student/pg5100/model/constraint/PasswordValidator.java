@@ -19,10 +19,11 @@ public class PasswordValidator implements ConstraintValidator<ValidPassword, Str
         if( password == null)
         return false;
 
-
+        boolean containsNumOfL = password.matches("(?=\\S+$).{8,}$");
+        boolean containsSpesialL = password.matches((".*[@#$%^+&=]"));
         boolean containsUpperCase = password.matches((".*([A-Z]).*"));
         boolean containsLowerCase = password.matches(".*([a-z]).*");
         boolean containsNumber = password.matches(".*([0-9]).*");
-        return (containsUpperCase && containsLowerCase && containsNumber);
+        return ( containsUpperCase && containsLowerCase && containsNumber && containsNumOfL && containsSpesialL);
     }
 }

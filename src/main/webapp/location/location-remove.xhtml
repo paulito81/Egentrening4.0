@@ -9,19 +9,13 @@
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
         <h:form>
-            <p:messages/>
-            <f:metadata>
-                <f:viewParam name="id" value="#{locationController.selectedId}"/>
-                <f:viewAction action="#{locationController.findLocationById()}" />
-            </f:metadata>
-            <h:outputLabel for="building" value="Building"/>
-            <h:inputText id="building" value="#{locationController.deleteLocationById() }"/>
+
             <br/>
             <h:outputLabel for="room" value="Room" />
 
             <h:inputText id="room" value="#{locationController.location.room}" />
             <br/>
-            <h:commandButton value="Remove" action="#{locationController.persistNewLocation() }" />
+            <h:commandButton value="Remove" action="#{locationController.deleteLocationById() }" />
         </h:form>
     </ui:define>
 </ui:composition>

@@ -30,7 +30,7 @@ public class JpaLocationDAO implements LocationDAO {
             entityManager.persist(location);
             return location;
         }
-        throw new IllegalArgumentException("No value found- null");
+        throw new IllegalArgumentException("No value found- null! :(");
     }
 
     @Override
@@ -38,7 +38,7 @@ public class JpaLocationDAO implements LocationDAO {
         if (id !=0) {
             return entityManager.find(Location.class, id);
         }
-        throw new IllegalArgumentException("No value found");
+        throw new IllegalArgumentException("No value found :(");
     }
 
     @Override
@@ -53,7 +53,7 @@ public class JpaLocationDAO implements LocationDAO {
             entityManager.remove(id);
             return true;
         }
-        throw new IllegalArgumentException("Value is not found");
+        throw new IllegalArgumentException("Value is not found :(");
     }
 
 }

@@ -21,7 +21,7 @@
                 <f:selectItems value="#{userController.getWorkTypes()}"/>
             </h:selectOneMenu>
             <br/>
-            <h:commandButton value="Submit" action="#{userController.persistNewUser()}"/>
+            <h:commandButton value="Submit" action="#{userController.persistNewUser() }"/>
         </h:form>
     </ui:define>
 </ui:composition>

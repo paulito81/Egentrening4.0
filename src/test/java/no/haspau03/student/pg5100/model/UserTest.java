@@ -35,17 +35,17 @@ public class UserTest {
     public void invalidUser() throws Exception{
         User user = new User();
         user.setEmail("test");
-        user.setPassword("1aL3123!");
+        user.setPassword("1aL3123!$");
 
         Set<ConstraintViolation<User>> violations = validator.validate(user);
-        assertEquals(3, violations.size());
+        assertEquals(2, violations.size());
     }
 
     @Test
     public void validUser() throws Exception{
         User user = new User();
         user.setEmail("test@test.com");
-        user.setPassword("abC123");
+        user.setPassword("abC2FF123$");
 
         Set<ConstraintViolation<User>> violations = validator.validate(user);
         assertTrue(!violations.isEmpty());
