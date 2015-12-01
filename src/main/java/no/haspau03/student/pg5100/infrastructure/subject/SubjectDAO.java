@@ -12,5 +12,6 @@ public interface SubjectDAO {
     Subject createNewSubject(Subject subject);
     Subject getSubjectById(int id);
     List<Subject> getAllUsersBySubject();
+    boolean removeSubject(int id);
 
 }

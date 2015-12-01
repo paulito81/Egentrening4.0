@@ -50,4 +50,13 @@ public class JpaSubjectDAO implements SubjectDAO{
         TypedQuery<Subject> query = entityManager.createNamedQuery("Subject.getUsers", Subject.class);
         return query.getResultList();
     }
+
+    @Override
+    public boolean removeSubject(int id) {
+        if(id != 0) {
+            entityManager.remove(id);
+            return true;
+        }
+        throw new IllegalArgumentException("Value is not found :(");
+    }
 }
