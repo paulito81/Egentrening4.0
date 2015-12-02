@@ -84,7 +84,8 @@ public class SubjectController {
         subject = subjectDAO.getSubjectById(subjectId);
     }
 
-    public void deleteSubjectById(){
+    public void deleteSubjectById(int subjectId){
+
         subjectDAO.removeSubject(subjectId);
     }
 
@@ -97,9 +98,9 @@ public class SubjectController {
         List<User> users = subject.getUsers();
         return users.stream().map(User::getEmail).collect(Collectors.toList());
     }
-    public List<SelectItem> getLocations2(){
+    public List<SelectItem> getSubjects(){
         List<Subject> subjects = getAllSubject();
-        return subjects.stream().map(s -> new SelectItem(s.getId(), s.getName(), s.getLocation() + " -" + s.getName())).collect(Collectors.toList()) ;
+        return subjects.stream().map(s -> new SelectItem(s.getId(), s.getName() + " -" + s.getName())).collect(Collectors.toList()) ;
     }
 
     public List<SelectItem> getLocations(){

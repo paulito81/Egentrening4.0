@@ -5,8 +5,10 @@ import no.haspau03.student.pg5100.model.Location;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
+import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Paul on 19.11.2015.
@@ -51,7 +53,12 @@ public class LocationController {
     }
 
     public Location getLocation() {
+
         return location;
+    }
+    public List<SelectItem> getLocations2(){
+        List<Location> locations = getAllLocations();
+        return locations.stream().map(l -> new SelectItem(l.getId(), l.getBuilding() + " -" + l.getBuilding())).collect(Collectors.toList()) ;
     }
 
     public void setLocation(Location location) {
