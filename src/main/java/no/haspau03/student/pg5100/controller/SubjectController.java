@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.model.SelectItem;
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,7 +45,7 @@ public class SubjectController {
     }
 
     private int userId;
-    private List<String> userIds;
+
 
     @PostConstruct
     public void init(){
@@ -81,13 +82,6 @@ public class SubjectController {
         this.locationId = locationId;
     }
 
-    public List<String> getUserIds() {
-        return userIds;
-    }
-
-    public void setUserIds(List<String> userIds) {
-        this.userIds = userIds;
-    }
 
     public void initSubject(){
 
@@ -122,21 +116,21 @@ public class SubjectController {
         return users.stream().map(u -> new SelectItem(u.getId(), u.getEmail())).collect(Collectors.toList());
     }
 
-    public void createNewSubject(){
+    public void createNewSubject( ){
         Location location = locationDAO.findByID(locationId);
-        subject.setLocation(location);
-        List<User> users = userIds.stream().map(id -> userDAO.getUserByID(Integer.parseInt(id))).collect(Collectors.toList());
+        User user = userDAO.getUserByID(userId);
+        List<User> users = new ArrayList<>();
         subject.setUsers(users);
-        subjectDAO.createNewSubject(subject);
+        users.add(user);
+        subject.setLocation(location);
+        subject.setId(userId);
+        subjectDAO.createSubject(subject);
     }
+
 
     public void getSubjectById(){
         subject = subjectDAO.getSubjectById(subjectId);
     }
 
-    public void persistNewSubject(){
-        subjectDAO.createNewSubject(subject);
-
-    }
 
 }

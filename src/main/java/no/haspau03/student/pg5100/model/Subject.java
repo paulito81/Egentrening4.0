@@ -30,7 +30,6 @@ public class Subject {
         this.users = users;
         this.location = location;
     }
-
     public Subject() {
 
     }

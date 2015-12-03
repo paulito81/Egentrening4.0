@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface SubjectDAO {
 
-    Subject createNewSubject(Subject subject);
+    Subject createSubject(Subject subject);
     Subject getSubjectById(int id);
     List<Subject> getAllUsersBySubject();
     boolean removeSubject(int id);

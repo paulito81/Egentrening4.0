@@ -9,24 +9,24 @@
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
         <h:form>
-            <p:panel header="Register A New User">
+            <p:panel header="Register A New Subject">
             <p:messages/>
             <p:panelGrid columns="2" columnClasses="label, value">
 
             <h:outputText style="font-size: large" value="Name:"/>
-            <h:inputText id="name" value="#{subjectController.subject.name}" required="true" label="Name"/>
+            <h:inputText id="Name" value="#{subjectController.subject.name}" />
             <h:outputText style="font-size: large" value="Location"/>
-                <h:selectOneMenu id="location" value="#{subjectController.locationId}">
+                <h:selectOneMenu id="locationId" value="#{subjectController.locationId}">
                 <f:selectItems var="location" value="#{subjectController.getLocations()}" />
                 </h:selectOneMenu>
             <h:outputText style="font-size: large" value="Users:"/>
-            <h:selectOneMenu style="font-size: large" id="users" value="#{subjectController.userId}">
+            <h:selectOneMenu style="font-size: large" id="userId" value="#{subjectController.userId}">
                 <f:selectItems value="#{subjectController.getUsers()  }"/>
             </h:selectOneMenu>
             </p:panelGrid>
             <br/>
                 <div align="left">
-            <h:commandButton style="font-size: x-large" value="Submit" action="#{subjectController.persistNewSubject() }"/>
+            <h:commandButton style="font-size: x-large" value="Submit" action="#{subjectController.createNewSubject() }"/>
             </div>
             </p:panel>
         </h:form>

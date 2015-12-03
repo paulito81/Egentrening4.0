@@ -2,7 +2,6 @@ package no.haspau03.student.pg5100.infrastructure.subject;
 
 import no.haspau03.student.pg5100.model.Subject;
 
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +11,7 @@ import java.util.List;
 /**
  * Created by Paul on 18.11.2015.
  */
+
 @Stateless
 public class JpaSubjectDAO implements SubjectDAO{
 
@@ -27,13 +27,12 @@ public class JpaSubjectDAO implements SubjectDAO{
     }
 
     @Override
-    public Subject createNewSubject(Subject subject) {
-        if(subject !=null){
-            entityManager.persist(subject);
-            return subject;
-        }
-        else
-            throw new IllegalArgumentException("No value was found");
+    public Subject createSubject(Subject subject) {
+        if(subject == null)
+            throw new IllegalArgumentException("Subject not found :(");
+
+        entityManager.persist(subject);
+        return subject;
     }
 
     @Override
