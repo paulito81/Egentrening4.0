@@ -8,6 +8,7 @@ INSERT INTO LOCATION (id, building, room) VALUES (1, 'Galleriet', '81');
 INSERT INTO LOCATION (id, building, room) VALUES (2, 'Galleriet', '82');
 INSERT INTO LOCATION (id, building, room) VALUES (3, 'Vulkan', '104');
 INSERT INTO LOCATION (id, building, room) VALUES (4, 'Vulkan', '105');
+INSERT INTO LOCATION (id, building, room) VALUES (5, 'Vulkan', '106');
 
 INSERT INTO SUBJECT (id, name, FK_LOCATION) VALUES (1, 'PG5100', 1);
 INSERT INTO SUBJECT (id, name, FK_LOCATION) VALUES (2, 'PG6100', 2);

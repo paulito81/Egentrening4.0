@@ -9,7 +9,7 @@ import javax.validation.Validator;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 /**
  * Created by Paul on 18.11.2015.
@@ -26,9 +26,9 @@ public class UserTest {
     @Test
     public void nullValueUser() throws Exception{
         User user = new User();
-
+        user.setPassword("abc");
         Set<ConstraintViolation<User>> violations = validator.validate(user);
-        assertEquals(4, violations.size());
+        assertEquals(3, violations.size());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class UserTest {
         user.setPassword("abC2FF123$");
 
         Set<ConstraintViolation<User>> violations = validator.validate(user);
-        assertTrue(!violations.isEmpty());
+        assertFalse(violations.isEmpty());
     }
 
 }

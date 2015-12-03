@@ -3,6 +3,7 @@ package no.haspau03.student.pg5100.infrastructure.user.jpa;
 import no.haspau03.student.pg5100.infrastructure.user.UserDAO;
 import no.haspau03.student.pg5100.model.User;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -12,6 +13,7 @@ import java.util.List;
  * Created by Paul on 18.11.2015.
  */
 @JPAUser
+@Stateless
 public class JPAUserDAO implements UserDAO {
 
     @PersistenceContext(unitName = "Egentrening4")
@@ -28,7 +30,8 @@ public class JPAUserDAO implements UserDAO {
     public User createUser(User user) {
         if (user == null)
             throw new IllegalArgumentException("User not found :(");
-            entityManager.persist(user);
+
+        entityManager.persist(user);
         return user;
     }
 

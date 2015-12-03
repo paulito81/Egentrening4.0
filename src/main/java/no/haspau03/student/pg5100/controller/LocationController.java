@@ -29,12 +29,11 @@ public class LocationController {
 
     public void persistNewLocation(){
 
-        locationDAO.persist(location);
+        locationDAO.persistLocation(location);
     }
 
     public List<Location> getAllLocations(){
-
-        return locationDAO.getAll();
+        return locationDAO.getAllLocations();
     }
 
     public void findLocationById(){
@@ -42,6 +41,11 @@ public class LocationController {
     }
     public void deleteLocationById(){
          locationDAO.removeLocation(selectedId);
+    }
+    public List<SelectItem> getDetachedLocations(){
+        List<Location> locations = locationDAO.getAllDetachedLocations();
+        return locations.stream().map(l -> new SelectItem(l.getId(), l.getRoom() + " -" + l.getBuilding())).collect(Collectors.toList()) ;
+
     }
 
     public int getSelectedId() {
@@ -58,7 +62,7 @@ public class LocationController {
     }
     public List<SelectItem> getLocations2(){
         List<Location> locations = getAllLocations();
-        return locations.stream().map(l -> new SelectItem(l.getId(), l.getBuilding() + " -" + l.getBuilding())).collect(Collectors.toList()) ;
+        return locations.stream().map(l -> new SelectItem(l.getId(), l.getRoom() + " -" + l.getBuilding())).collect(Collectors.toList()) ;
     }
 
     public void setLocation(Location location) {

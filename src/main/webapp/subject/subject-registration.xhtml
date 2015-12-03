@@ -20,13 +20,13 @@
                 <f:selectItems var="location" value="#{subjectController.getLocations()}" />
                 </h:selectOneMenu>
             <h:outputText style="font-size: large" value="Users:"/>
-            <h:selectOneMenu style="font-size: large" id="users" value="#{subjectController.userIds}">
+            <h:selectOneMenu style="font-size: large" id="users" value="#{subjectController.userId}">
                 <f:selectItems value="#{subjectController.getUsers()  }"/>
             </h:selectOneMenu>
             </p:panelGrid>
             <br/>
                 <div align="left">
-            <h:commandButton style="font-size: x-large" value="Submit" action="#{subjectController.createNewSubject()}"/>
+            <h:commandButton style="font-size: x-large" value="Submit" action="#{subjectController.persistNewSubject() }"/>
             </div>
             </p:panel>
         </h:form>

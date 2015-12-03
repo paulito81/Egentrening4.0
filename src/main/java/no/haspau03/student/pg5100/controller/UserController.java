@@ -58,8 +58,17 @@ public class UserController {
         return Arrays.asList(WorkType.values()).stream().map(t-> new SelectItem(t, t.name())).collect(Collectors.toList());
 
     }
+
+    public void deleteUser(){
+        userDAO.deleteUser(selectedId);
+    }
+
     public List<String> getSelectedSubjects() {
         return user.getSubjects().stream().map(Subject::getName).collect(Collectors.toList());
+    }
+    public List<SelectItem> getUsers(){
+        List<User> users = userDAO.getAllUsers();
+        return users.stream().map(u -> new SelectItem(u.getId(), u.getEmail())).collect(Collectors.toList());
     }
 
 }

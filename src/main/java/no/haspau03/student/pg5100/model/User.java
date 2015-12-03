@@ -1,8 +1,6 @@
 package no.haspau03.student.pg5100.model;
 
 
-import no.haspau03.student.pg5100.model.constraint.ValidPassword;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -25,7 +23,6 @@ public class User {
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$")
     private String email;
     @NotNull
-    @ValidPassword
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^+&=])(?=\\S+$).{8,}$")
     private String password;
 

@@ -9,8 +9,9 @@ import java.util.List;
  */
 public interface LocationDAO {
 
-    Location persist(Location location);
+    Location persistLocation(Location location);
     Location findByID(int id);
-    List<Location> getAll();
+    List<Location> getAllLocations();
+    List<Location> getAllDetachedLocations();
     boolean removeLocation(int id);
 }

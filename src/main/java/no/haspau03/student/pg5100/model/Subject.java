@@ -10,7 +10,10 @@ import java.util.List;
  * Created by Paul on 18.11.2015.
  */
 @Entity
-@NamedQuery(name = "Subject.getUsers", query = "select s from Subject s")
+@NamedQueries({
+        @NamedQuery(name = "Subject.getUsers", query = "select s from Subject s"),
+        @NamedQuery(name = "Subject.getSubjectsForLocation", query = "select s from Subject s where s.location.id = :id")
+})
 @SequenceGenerator(name = "SEQ_SUBJECT", initialValue = 50)
 public class Subject {
 
@@ -27,13 +30,15 @@ public class Subject {
         this.users = users;
         this.location = location;
     }
-    public Subject(){
+
+    public Subject() {
 
     }
 
     @NotNull
     @Size(min = 0, max = 100)
-    @ManyToMany(fetch = FetchType.EAGER)//(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
+//(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinTable(name = "USR_SUB")
     private List<User> users;
 
@@ -66,6 +71,7 @@ public class Subject {
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
     public Location getLocation() {
         return location;
     }

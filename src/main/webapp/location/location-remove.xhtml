@@ -14,8 +14,8 @@
         <p:panelGrid columns="2" columnClasses="label, value">
 
             <h:outputText style="font-size: large" value="Remove Location:"/>
-            <h:selectOneMenu style="font-size: large" id="locations" value="#{locationController.getAllLocations()}">
-                <f:selectItems value="#{locationController.getLocations2()  }"/>
+            <h:selectOneMenu style="font-size: large" id="locations" value="#{locationController.selectedId}">
+                <f:selectItems value="#{locationController.getDetachedLocations() }"/>
             </h:selectOneMenu>
             </p:panelGrid>
             <br/>

@@ -34,6 +34,16 @@ public class SubjectController {
     private Subject subject;
 
     private int locationId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    private int userId;
     private List<String> userIds;
 
     @PostConstruct
@@ -100,11 +110,11 @@ public class SubjectController {
     }
     public List<SelectItem> getSubjects(){
         List<Subject> subjects = getAllSubject();
-        return subjects.stream().map(s -> new SelectItem(s.getId(), s.getName() + " -" + s.getName())).collect(Collectors.toList()) ;
+        return subjects.stream().map(s -> new SelectItem(s.getId(), s.getName(), s.getLocation() + " -" + s.getName())).collect(Collectors.toList()) ;
     }
 
     public List<SelectItem> getLocations(){
-        List<Location> locations = locationDAO.getAll();
+        List<Location> locations = locationDAO.getAllLocations();
         return locations.stream().map(l -> new SelectItem(l.getId(), l.getBuilding() + " -" + l.getRoom())).collect(Collectors.toList()) ;
     }
     public List<SelectItem> getUsers(){
@@ -124,6 +134,9 @@ public class SubjectController {
         subject = subjectDAO.getSubjectById(subjectId);
     }
 
+    public void persistNewSubject(){
+        subjectDAO.createNewSubject(subject);
 
+    }
 
 }
