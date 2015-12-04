@@ -15,13 +15,13 @@
 
                     <h:outputText style="font-size: large"  value="Remove Subject:"/>
 
-                    <h:selectOneMenu style="font-size: large" id="users" value="#{userController.user.email}" required="true" label="User email: " >
+                    <h:selectOneMenu style="font-size: large" id="users" value="#{userController.selectedId}" required="true" label="User email: " >
                         <f:selectItems value="#{userController.getUsers() }"/>
                     </h:selectOneMenu>
                 </p:panelGrid>
                 <br/>
                 <div align="left">
-                    <h:commandButton style="font-size: x-large" value="Remove" action="#{userController.deleteUser()}" />
+                    <h:commandButton style="font-size: x-large" value="Remove" action="#{userController.deleteUserById()}" />
                 </div>
             </p:panel>
         </h:form>

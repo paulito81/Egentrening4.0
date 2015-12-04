@@ -1,11 +1,13 @@
 package no.haspau03.student.pg5100.infrastructure.subject;
 
+import no.haspau03.student.pg5100.model.Location;
 import no.haspau03.student.pg5100.model.Subject;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,5 +59,20 @@ public class JpaSubjectDAO implements SubjectDAO{
             return true;
         }
         throw new IllegalArgumentException("Value is not found :(");
+    }
+
+    @Override
+    public List<Subject> getAllDetachedSubjects() {
+        List<Subject> detachedSubjects = new ArrayList<>();
+        List<Subject> subjects = getAllUsersBySubject();
+        for(Subject subject : subjects){
+            TypedQuery<Location> query = entityManager.createNamedQuery("Location.getLocationForSubject", Location.class);
+            query.setParameter("id", subject.getId());
+            List<Location> locations = query.getResultList();
+            if( locations.isEmpty()){
+                detachedSubjects.add(subject);
+            }
+        }
+        return detachedSubjects;
     }
 }

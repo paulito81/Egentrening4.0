@@ -13,5 +13,6 @@ public interface SubjectDAO {
     Subject getSubjectById(int id);
     List<Subject> getAllUsersBySubject();
     boolean removeSubject(int id);
+    List<Subject> getAllDetachedSubjects();
 
 }

@@ -102,10 +102,7 @@ public class SubjectController {
         List<User> users = subject.getUsers();
         return users.stream().map(User::getEmail).collect(Collectors.toList());
     }
-    public List<SelectItem> getSubjects(){
-        List<Subject> subjects = getAllSubject();
-        return subjects.stream().map(s -> new SelectItem(s.getId(), s.getName(), s.getLocation() + " -" + s.getName())).collect(Collectors.toList()) ;
-    }
+
 
     public List<SelectItem> getLocations(){
         List<Location> locations = locationDAO.getAllLocations();
@@ -116,7 +113,13 @@ public class SubjectController {
         return users.stream().map(u -> new SelectItem(u.getId(), u.getEmail())).collect(Collectors.toList());
     }
 
-    public void createNewSubject( ){
+
+    public List<SelectItem> getDetachedSubjects(){
+        List<Subject> subjects = subjectDAO.getAllDetachedSubjects();
+        return subjects.stream().map(s -> new SelectItem(s.getId(), s.getName() + " - " + s.getLocation().getBuilding())).collect(Collectors.toList());
+    }
+
+    public void createNewSubject() {
         Location location = locationDAO.findByID(locationId);
         User user = userDAO.getUserByID(userId);
         List<User> users = new ArrayList<>();
@@ -126,11 +129,5 @@ public class SubjectController {
         subject.setId(userId);
         subjectDAO.createSubject(subject);
     }
-
-
-    public void getSubjectById(){
-        subject = subjectDAO.getSubjectById(subjectId);
-    }
-
 
 }

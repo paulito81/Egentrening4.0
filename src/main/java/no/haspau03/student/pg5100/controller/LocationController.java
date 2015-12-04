@@ -60,10 +60,7 @@ public class LocationController {
 
         return location;
     }
-    public List<SelectItem> getLocations2(){
-        List<Location> locations = getAllLocations();
-        return locations.stream().map(l -> new SelectItem(l.getId(), l.getRoom() + " -" + l.getBuilding())).collect(Collectors.toList()) ;
-    }
+
 
     public void setLocation(Location location) {
         this.location = location;

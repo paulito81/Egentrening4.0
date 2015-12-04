@@ -150,7 +150,7 @@ public class H2UserDAO implements UserDAO {
     }
 
     @Override
-    public synchronized boolean deleteUser(int id) {
+    public synchronized boolean removeUser(int id) {
         String deleteUserSQL = "DELETE FROM user WHERE id = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(deleteUserSQL)) {

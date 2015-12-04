@@ -59,8 +59,8 @@ public class UserController {
 
     }
 
-    public void deleteUser(){
-        userDAO.deleteUser(selectedId);
+    public void deleteUserById(){
+        userDAO.removeUser(selectedId);
     }
 
     public List<String> getSelectedSubjects() {

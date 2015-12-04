@@ -54,9 +54,9 @@ public class ArrayListDAO implements UserDAO {
     }
 
     @Override
-    public boolean deleteUser(int id) {
+    public boolean removeUser(int id) {
         if(id !=0){
-            return userDAO.deleteUser(id);
+            return userDAO.removeUser(id);
         }else
             throw new NullPointerException("User is not in the list!");
     }

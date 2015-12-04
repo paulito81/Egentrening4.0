@@ -29,7 +29,7 @@ public class JPAUserDAO implements UserDAO {
     @Override
     public User createUser(User user) {
         if (user == null)
-            throw new IllegalArgumentException("User not found :(");
+            throw new IllegalArgumentException("User coul not be created, we got a nullpointer!  =(" );
 
         entityManager.persist(user);
         return user;
@@ -38,7 +38,7 @@ public class JPAUserDAO implements UserDAO {
     @Override
     public boolean updateAUser(User user) {
         if (user == null)
-            throw new IllegalArgumentException("User where not found @Nullpointer :(");
+            throw new IllegalArgumentException("User is not found, we got a nullpointer!  =(" );
 
         if (entityManager.contains(user)) {
             entityManager.merge(user);
@@ -52,7 +52,7 @@ public class JPAUserDAO implements UserDAO {
     @Override
     public User getUserByID(int id) {
         if (id == 0)
-            throw new IllegalArgumentException(String.format("User with id-nr:[%d] where not found :(", id));
+            throw new IllegalArgumentException(String.format("User with id-nr:[%d] where not found  =( ", id));
 
         return entityManager.find(User.class, id);
     }
@@ -64,9 +64,12 @@ public class JPAUserDAO implements UserDAO {
     }
 
     @Override
-    public boolean deleteUser(int id) {
-        User user = entityManager.find(User.class, id);
-        entityManager.remove(user);
-        return true;
+    public boolean removeUser(int id) {
+        if (id != 0) {
+            User user = entityManager.find(User.class, id);
+            entityManager.remove(user);
+            return true;
+        }
+        throw new IllegalArgumentException(String.format("User with id-nr:[%d] where not found =(", id));
     }
 }
